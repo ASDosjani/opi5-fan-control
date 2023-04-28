@@ -64,7 +64,8 @@ In this example, the fan 5V pin was connected to 5V on OPi, Ground to a BC327 em
 
 ![image](https://user-images.githubusercontent.com/62965528/235144283-13e8825a-af22-48e3-85d1-1ecaf23eeb8a.png)
 
-
 ## Note
 
 This script has been successfully tested on an Orange Pi 5. However, it should also work on other Orange Pi's.
+I use this small fan included with the heatsink like this:
+
