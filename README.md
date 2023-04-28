@@ -1,12 +1,14 @@
-# Orange Pi 5: PWM Fan Control
+# Orange Pi 5: Treshold Fan Control
+The repo is based on: https://github.com/bastilmr/opi5-fan-control
 
-This script written in C language reads the CPU temperature and adjusts the fan speed based on that information. Before the script can work, wiringOP needs to be downloaded and installed from Git to enable the use of GPIO pins. Additionally, the script needs to be compiled after it's downloaded.
+This script written in C language reads the CPU temperature and toggle the fan based on that information. Before the script can work, wiringOP needs to be downloaded and installed from Git to enable the use of GPIO pins. Additionally, the script needs to be compiled after it's downloaded.
 
 ## Requirements
 
 - Orange Pi 5
 - wiringOP (https://github.com/orangepi-xunlong/wiringOP.git)
-- 5V PWM Fan (e.g. Noctua)
+- 5V Fan (e.g. Noctua)
+- PNP/NPN transistor
 
 ## Installation
 
@@ -24,7 +26,7 @@ cd wiringOP
 
 3. Download the C script and save it to the directory of your choice.
 ```
-git clone https://github.com/bastilmr/opi5-fan-control.git
+git clone https://github.com/ASDosjani/opi5-fan-control.git
 ```
 
 4. Compile the script using the following command:
@@ -51,16 +53,16 @@ Be sure to replace `/path/to/` with the actual path to the directory where the s
 
 ## Configuration
 
-The script is configured by default to control the fan speed based on the CPU temperature. However, you can customize the configuration to your needs by changing the following variables in the script:
+You can customize the configuration to your needs by changing the following variables in the script:
 
 - `FAN_PIN`: The GPIO pin where the fan is connected.
 - `CPU_TEMP_FILE`: The file that contains the CPU temperature.
-- `MIN_TEMP`: The minimum CPU temperature at which the fan runs at the minimum speed.
-- `MAX_TEMP`: The maximum CPU temperature at which the fan runs at the maximum speed.
-- `MIN_PWM`: The minimum fan speed.
-- `MAX_PWM`: The maximum fan speed.
+- `THRESHOLD_TEMP`: The minimum CPU temperature at which the fan start spinning.
+- `PNP`: 1 if PNP transistor used, 0 if NPN
 
-In this example, the fan was connected to the 5V, Ground, and GPIO4_A3 (UART0_TX_M2) Pin of the Orange Pi 5.
+In this example, the fan 5V pin was connected to 5V on OPi, Ground to a BC327 emitter pin, collector to Ground and base to GPIO4_A3 (UART0_TX_M2) Pin of the Orange Pi 5. Like in the picture:
+![image](https://user-images.githubusercontent.com/62965528/235144283-13e8825a-af22-48e3-85d1-1ecaf23eeb8a.png)
+
 
 ## Note
 
