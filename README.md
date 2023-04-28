@@ -61,6 +61,7 @@ You can customize the configuration to your needs by changing the following vari
 - `PNP`: 1 if PNP transistor used, 0 if NPN
 
 In this example, the fan 5V pin was connected to 5V on OPi, Ground to a BC327 emitter pin, collector to Ground and base to GPIO4_A3 (UART0_TX_M2) Pin of the Orange Pi 5. Like in the picture:
+
 ![image](https://user-images.githubusercontent.com/62965528/235144283-13e8825a-af22-48e3-85d1-1ecaf23eeb8a.png)
 
 
